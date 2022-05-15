@@ -7,17 +7,17 @@ import { CreateBoardDto } from './dto/create-board.dto';
 export class BoardsController {
   constructor(private boardsService: BoardsService) {}
 
-  @Get('/getAllBoards')
+  @Get('/')
   getAllBoards(): Board[] {
     return this.boardsService.getAllBoards();
   }
 
-  @Get('/getBoardById/:id')
+  @Get('/:id')
   getBoardById(@Param('id') id: string): Board {
     return this.boardsService.getBoardById(id);
   }
 
-  @Post('/createBoard')
+  @Post('/')
   createBoard(@Body() createBoardDto: CreateBoardDto): Board {
     return this.boardsService.createBoard(createBoardDto);
   }
